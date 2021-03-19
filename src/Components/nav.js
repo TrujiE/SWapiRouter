@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 
 export function Nav(){
@@ -6,15 +7,15 @@ export function Nav(){
 return (
 	<div className="container">
 		<nav className="navbar navbar-light bg-light">
-		  <a className="navbar-brand"><h2>StarWars</h2></a>
+		  <Link to="/" className="navbar-brand"><h2>StarWars</h2></Link>
 		  <div className="form-inline">
 	    	<ul className="navbar-nav mr-auto">	    
 	      		<li className="nav-item dropdown">
-	        		<a className="nav-link dropdown-toggle btn btn-primary " style={{color: "white"}} href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	        		<Link className="nav-link dropdown-toggle btn btn-primary " style={{color: "white"}} href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	          			Favoritos
-	        		</a>
+	        		</Link>
 	        		<div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-	          		<a className="dropdown-item" href="#">Action</a>
+	          		<Link className="dropdown-item" href="#">Action</Link>
 	        		</div>
 	      		</li>	      
 	    	</ul>
