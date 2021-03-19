@@ -16,18 +16,22 @@ function Home(){
 	},[]);
 
 	const listaPeople = () => {
-		return(
+
+		let nombre = 
 		<div>
 			{tareas.results
 				? tareas.results.map((elemento, indice) => { 
-				return (<div key={indice}>{elemento.name}</div>);
+				return (<div id={indice} key={indice}>{elemento.uid} &nbsp; {elemento.name}&nbsp;{elemento.url}</div>);
 //				for(i=0; i>{indice}; i=i+1;){
 					
 //				}
 				
 			})
 			: "loading..."}
-		</div>
+			</div>;
+
+		return(
+			nombre
 		);
 	}
 
@@ -43,7 +47,7 @@ return (
 		    <p className="card-text">Gender: </p>
 		    <p className="card-text">Hair Color: </p>
 		    <p className="card-text">Eye-Color: </p>
-		    <a href="#" className="btn btn-outline-primary">Learn more!</a>&nbsp;&nbsp;<a href="#" className="btn btn-outline-warning">♥</a>
+		    <Link to="/people" className="btn btn-outline-primary">Learn more!</Link>&nbsp;&nbsp;<a href="#" className="btn btn-outline-warning">♥</a>
 		  </div>
 		</div>
 		<br />
@@ -54,7 +58,7 @@ return (
 		  <div className="card-body">
 		    <h5 className="card-title">Card title</h5>
 		    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-		    <a href="#" className="btn btn-outline-primary">Learn more!</a>&nbsp;&nbsp;<a href="#" className="btn btn-outline-warning">♥</a>
+		    <Link to="/planets" className="btn btn-outline-primary">Learn more!</Link>&nbsp;&nbsp;<a href="#" className="btn btn-outline-warning">♥</a>
 		  </div>
 		</div>
 		
@@ -66,7 +70,7 @@ return (
 		  <div className="card-body">
 		    <h5 className="card-title">Card title</h5>
 		    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-		    <a href="#" className="btn btn-outline-primary">Learn more!</a>&nbsp;&nbsp;<a href="#" className="btn btn-outline-warning">♥</a>
+		    <Link to="/vehicles" className="btn btn-outline-primary">Learn more!</Link>&nbsp;&nbsp;<a href="#" className="btn btn-outline-warning">♥</a>
 		  </div>
 		</div>				
 	</div>
