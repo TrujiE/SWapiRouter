@@ -23,7 +23,7 @@ export function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route render={() => <h1>Not found</h1>} />
+        <Route render={() => <h1>Not Found</h1>} />
       </Switch>
     </Router>
   );

@@ -1,8 +1,27 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 
 export function People(){
+	const {number} = useParams();
+	const [tarea, setTarea] = useState("");
+	const [tareas, setTareas] = useState([]);
+
+
+	useEffect(() => {
+		fetch("https://www.swapi.tech/api/people/ + number")
+			.then(response => response.json())
+			.then(data => setTarea(data))
+			.catch(error => console.error(error));		
+	},[]);
+
+const listaPeople = () => {
+
+		const nombre2 = tarea.message
+		console.log("nombre2", nombre2);
+
+	}
+
 
 return (
 	<div className="container">	
