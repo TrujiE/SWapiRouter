@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { Link, useParams } from "react-router-dom";
+import {Context} from "../store/appContext";
+import Card from "./card";
 
 
 function ListPlanets(){
-
+	const {number} = useParams();
+	const {store, actions} = useContext(Context);	
 	const [tarea, setTarea] = useState("");
 	const [tareas, setTareas] = useState([]);
 	const [resultado, setResultado] = useState([]);
@@ -11,50 +14,33 @@ function ListPlanets(){
 	useEffect(() => {
 		fetch("https://www.swapi.tech/api/planets")
 			.then(response => response.json())
-			.then(data => setTareas(data))
+			.then(data => setResultado(data))
 			.catch(error => console.error(error));		
 	},[]);
 
-	const listaPlanets = () => {
-		let nombre = 
-		<div>
-			{tareas.results
-				? tareas.results.map((elemento, indice) => { 
-
-				return (<div id={indice} key={indice}> 
-						{elemento.name}					
-					</div>				
-
-					);
-
-			
-			})
-			: "loading..."}
-			</div>;
-
-		return(
-			//console.log(nombre)
-			nombre
-		);
-	}
+	const planetas = 
+		<div className="d-flex">
+		{resultado.results
+			? resultado.results.map((elemento, indice) => {			
+			return(
+				<div id={indice} key={indice} >	
+						<Card title= {elemento.name} uid={elemento.uid} />	
+				</div>					
+				);			
+		})
+		: "loading..."}
+		</div>;
 
 	return(
 		<div className="container">	
 		<h4 style={{color: "red"}}> Planets </h4>
-		<div className="card" style={{width: "18rem"}}>
-		  <img src="https://picsum.photos/90/80/" className="card-img-top" alt="..." />
-		  <div className="card-body">
-		    <h5 className="card-title">{listaPlanets()}</h5>
-		    <p className="card-text">Population: </p>
-		    <p className="card-text">Terrain: </p>
-		    <Link to="/planets" className="btn btn-outline-primary">Learn more!</Link>&nbsp;&nbsp;<a href="#" className="btn btn-outline-warning">♥</a>
-		  </div>
+		<div className="card-deck">
+		<div >
+			{planetas}		
 		</div>
-		<br />
-		</div>
+	    </div>
+	    </div>	   
 		);
-
-
 }
 
 export default ListPlanets;

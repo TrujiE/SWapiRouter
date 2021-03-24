@@ -5,8 +5,10 @@ import {People} from "./views/people";
 import {Planets} from "./views/planets";
 import {Vehicles} from "./views/vehicles";
 import {Nav} from "./Components/nav";
+import injectContext from "./store/appContext";
 
-export function App() {
+
+const App = () => {
   return (
     <Router>
       <Nav />
@@ -28,3 +30,5 @@ export function App() {
     </Router>
   );
 }
+
+export default injectContext(App);
