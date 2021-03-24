@@ -7,7 +7,7 @@ import ListVehicles from './listvehicles';
 
 
 function Home(){
-	const {name} = useParams();
+	const {name, id} = useParams();
 	const {store, actions} = useContext(Context);
 
 	return (

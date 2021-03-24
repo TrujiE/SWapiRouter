@@ -5,20 +5,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 			last_name: "Wars",
 			//favoritos: ["uno", "dos", "tres"]
 			favoritos: [],
-			detPeople: [],
-			detPlanet: [],
-			detVehicle: []
+			detalle: {}
 		},
 		actions: {
 			onClick: () => {
 				alert("Bang");
 			},
-			detallePeople: (id) =>{
-					fetch("https://www.swapi.tech/api/people/" + id)
+			detalle: (id) =>{
+					fetch("https://www.swapi.tech/api" + id)
 					.then(response => response.json())
- 					.then(data => setStore({detPeople:data.results}))
+ 					.then(data => setStore({detalle:data.result.properties}))
 					.catch(error => console.error(error));
-			},
+				},						
 			eliminaFav: (indice) => {
 				const store = getStore();
 				const {favoritos} = store;		

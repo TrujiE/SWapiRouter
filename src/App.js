@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, useParams } from "react-router-dom";
 import Home from "./views/home";
 import {People} from "./views/people";
 import {Planets} from "./views/planets";
@@ -8,18 +8,18 @@ import {Nav} from "./Components/nav";
 import injectContext from "./store/appContext";
 
 
-const App = () => {
+const App = () => {  
   return (
     <Router>
       <Nav />
       <Switch>
-        <Route exact path="/people">
+        <Route exact path="/people/:id">
          <People />
         </Route>
-        <Route exact path="/planets">
+        <Route exact path="/planets/:id">
          <Planets />
         </Route>
-        <Route exact path="/vehicles">
+        <Route exact path="/vehicles/:id">
          <Vehicles />
         </Route>                
         <Route exact path="/">

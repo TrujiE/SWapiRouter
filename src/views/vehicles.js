@@ -1,25 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { Link, useParams } from "react-router-dom";
+import {Context} from "../store/appContext";
 import CardDetalle from "./cardDetalle";
 
 
 export function Vehicles(){
+	const {number} = useParams();
+	const {store, actions} = useContext(Context);
 
 return (
 	<div className="container">	
-		<div className="card mb-3 text-center" style={{"max-width": "1000px", "border": "none"}}>
-		  <div className="row no-gutters">
-		    <div className="col-md-3">
-		      <img src="https://picsum.photos/200/300/" className="card-img-top" alt="..." />
-		    </div>
-		    <div className="col-md-8">
-		      <div className="card-body">
-		        <h5 className="card-title">Card title</h5>
-		        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>		        
-		      </div>
-		    </div>		    
-		  </div>
-		</div>
+		<CardDetalle />	
 		<div className="dropdown-divider" style={{"background-color": "red", height: "2px"}}></div>
 		
 		<ul className="list-group list-group-horizontal-xl">
@@ -32,12 +23,12 @@ return (
 		</ul>	
 		
 		<ul className="list-group list-group-horizontal-xl">
-		  <li className="list-group-item" style={{"border": "none", color:"red"}}></li>
-		  <li className="list-group-item" style={{"border": "none", color:"red"}}></li>
-		  <li className="list-group-item" style={{"border": "none", color:"red"}}></li>
-		  <li className="list-group-item" style={{"border": "none", color:"red"}}></li>
-		  <li className="list-group-item" style={{"border": "none", color:"red"}}></li>
-		  <li className="list-group-item" style={{"border": "none", color:"red"}}></li>		  		  		  		  
+		  <li className="list-group-item" style={{"border": "none", color:"red"}}>{store.detalle.name}</li>
+		  <li className="list-group-item" style={{"border": "none", color:"red"}}>{store.detalle.passengers}</li>
+		  <li className="list-group-item" style={{"border": "none", color:"red"}}>{store.detalle.vehicle_class}</li>
+		  <li className="list-group-item" style={{"border": "none", color:"red"}}>{store.detalle.crew}</li>
+		  <li className="list-group-item" style={{"border": "none", color:"red"}}>{store.detalle.manufacturer}</li>
+		  <li className="list-group-item" style={{"border": "none", color:"red"}}>{store.detalle.length}</li>		  		  		  		  
 		</ul>	
 	</div>
 	);

@@ -24,7 +24,7 @@ function ListVehicles(){
 			? resultado.results.map((elemento, indice) => {			
 			return(
 				<div id={indice} key={indice} >	
-						<Card title= {elemento.name} uid={elemento.uid}/>	
+						<Card title= {elemento.name} uid={elemento.uid} link={'/vehicles/' + elemento.uid} />	
 				</div>					
 				);			
 		})

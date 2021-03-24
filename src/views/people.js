@@ -1,27 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
+import {Context} from "../store/appContext";
 import CardDetalle from "./cardDetalle";
 
 
 export function People(){
 	const {number} = useParams();
+	const {store, actions} = useContext(Context);
 	const [tarea, setTarea] = useState("");
 	const [tareas, setTareas] = useState([]);
-
-
-	useEffect(() => {
-		fetch("https://www.swapi.tech/api/people/ + number")
-			.then(response => response.json())
-			.then(data => setTarea(data))
-			.catch(error => console.error(error));		
-	},[]);
-
-	const listaPeople = () => {
-
-		const nombre2 = tarea.message
-		console.log("nombre2", nombre2);
-
-	}
 
 return (
 	<div className="container">	
@@ -38,12 +25,12 @@ return (
 		</ul>	
 		
 		<ul className="list-group list-group-horizontal-xl">
-		  <li className="list-group-item" style={{"border": "none", color:"red"}}></li>
-		  <li className="list-group-item" style={{"border": "none", color:"red"}}></li>
-		  <li className="list-group-item" style={{"border": "none", color:"red"}}></li>
-		  <li className="list-group-item" style={{"border": "none", color:"red"}}></li>
-		  <li className="list-group-item" style={{"border": "none", color:"red"}}></li>
-		  <li className="list-group-item" style={{"border": "none", color:"red"}}></li>		  		  		  		  
+		  <li className="list-group-item" style={{"border": "none", color:"red"}}>{store.detalle.name}</li>
+		  <li className="list-group-item" style={{"border": "none", color:"red"}}>{store.detalle.birth_year}</li>
+		  <li className="list-group-item" style={{"border": "none", color:"red"}}>{store.detalle.gender}</li>
+		  <li className="list-group-item" style={{"border": "none", color:"red"}}>{store.detalle.height}</li>
+		  <li className="list-group-item" style={{"border": "none", color:"red"}}>{store.detalle.skin_color}</li>
+		  <li className="list-group-item" style={{"border": "none", color:"red"}}>{store.detalle.eye_color}</li>		  		  		  		  
 		</ul>		
 	</div>
 	);

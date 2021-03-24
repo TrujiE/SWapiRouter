@@ -24,7 +24,7 @@ function ListPeople(){
 			? resultado.results.map((elemento, indice) => {			
 			return(
 				<div id={indice} key={indice} >	
-						<Card title= {elemento.name} uid={elemento.uid}/>	
+						<Card title= {elemento.name} uid={elemento.uid} link={'/people/' + elemento.uid} />						
 				</div>					
 				);			
 		})

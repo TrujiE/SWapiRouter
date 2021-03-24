@@ -14,7 +14,9 @@ const Card = (props) => {
 		    <p className="card-text"> {props.gender}</p>
 		    <p className="card-text"> {props.hair}</p>
 		    <p className="card-text"> {props.eyes}</p>
-		    <Link to="/people" id={props.uid} onClick={() => {alert("voy")}, actions.detallePeople(props.uid)} className="btn btn-outline-primary">Learn more! </Link>&nbsp;&nbsp;<a href="#" className="btn btn-outline-warning">♥</a>
+		    <Link to={props.link} id={props.uid} onClick={() => 
+		    	 actions.detalle(props.link)} className="btn btn-outline-primary">Learn more! 
+		    	</Link>&nbsp;&nbsp;<a href="#" className="btn btn-outline-warning">♥</a>
 		  </div>
 		</div>
 		<br />
